@@ -19,7 +19,9 @@ export default function RootLayout({
         className={`antialiased`}
       >
         <HeroUIWrapper>
-        {children}
+            <div className="max-w-[1400px] mx-auto">
+            {children}
+            </div>
         </HeroUIWrapper>
       </body>
     </html>
