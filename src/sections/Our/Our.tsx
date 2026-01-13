@@ -17,6 +17,23 @@ const Our = () => {
   const pemtekDescRef = useRef<HTMLDivElement>(null);
   const pemtekFooterRef = useRef<HTMLDivElement>(null);
 
+  // ===== GLOBAL GSAP =====
+  gsap.defaults({ overwrite: "auto" });
+
+  // ===== HELPER (RESPONSIVE) =====
+  const moveIconToRight = (
+    card: HTMLDivElement | null,
+    icon: HTMLDivElement | null
+  ) => {
+    if (!card || !icon) return 0;
+
+    const cardRect = card.getBoundingClientRect();
+    const iconRect = icon.getBoundingClientRect();
+
+    const padding = 40; // p-10 tailwind
+    return cardRect.width - iconRect.width - padding;
+  };
+
   /* ================= MEDKOM ================= */
   const handleMedkomEnter = () => {
     const tl = gsap.timeline();
@@ -27,7 +44,6 @@ const Our = () => {
         backgroundColor: "#f97316",
         borderColor: "#f97316",
         duration: 0.3,
-        ease: "power2.out",
       },
       0
     );
@@ -36,10 +52,14 @@ const Our = () => {
       medkomIconRef.current,
       {
         y: -30,
-        x: 360,
+        x: () =>
+          moveIconToRight(
+            medkomCardRef.current,
+            medkomIconRef.current
+          ),
         rotation: 1080,
         scale: 0.85,
-        duration: 0.5,
+        duration: 0.6,
         ease: "none",
       },
       0
@@ -49,7 +69,7 @@ const Our = () => {
       medkomTitleRef.current,
       {
         y: -102,
-        duration: 0.8,
+        duration: 0.7,
         ease: "power3.out",
       },
       0
@@ -61,7 +81,6 @@ const Our = () => {
         opacity: 1,
         y: 0,
         duration: 0.4,
-        ease: "power3.out",
       },
       0.2
     );
@@ -77,60 +96,50 @@ const Our = () => {
   };
 
   const handleMedkomLeave = () => {
-    const tl = gsap.timeline();
-
-    tl.to(
-      medkomCardRef.current,
-      {
+    gsap.timeline()
+      .to(medkomCardRef.current, {
         backgroundColor: "#ffffff",
         borderColor: "#e5e7eb",
         duration: 0.4,
-        ease: "power2.inOut",
-      },
-      0
-    );
-
-    tl.to(
-      medkomIconRef.current,
-      {
-        x: 0,
-        rotation: 0,
-        scale: 1,
-        duration: 0.8,
-        ease: "power3.inOut",
-      },
-      0
-    );
-
-    tl.to(
-      medkomTitleRef.current,
-      {
-        y: 0,
-        color: "#000000",
-        duration: 0.4,
-      },
-      0
-    );
-
-    tl.to(
-      medkomDescRef.current,
-      {
-        opacity: 0,
-        y: 24,
-        color: "#4b5563",
-        duration: 0.3,
-      },
-      0
-    );
-
-    tl.to(
-      medkomFooterRef.current,
-      {
-        color: "#9ca3af",
-        duration: 0.3,
-      },
-      0
-    );
+      })
+      .to(
+        medkomIconRef.current,
+        {
+          x: 0,
+          y: 0,
+          rotation: 0,
+          scale: 1,
+          duration: 0.6,
+        },
+        0
+      )
+      .to(
+        medkomTitleRef.current,
+        {
+          y: 0,
+          color: "#000000",
+          duration: 0.4,
+        },
+        0
+      )
+      .to(
+        medkomDescRef.current,
+        {
+          opacity: 0,
+          y: 24,
+          color: "#4b5563",
+          duration: 0.3,
+        },
+        0
+      )
+      .to(
+        medkomFooterRef.current,
+        {
+          color: "#9ca3af",
+          duration: 0.3,
+        },
+        0
+      );
   };
 
   /* ================= PEMTEK ================= */
@@ -143,7 +152,6 @@ const Our = () => {
         backgroundColor: "#3b82f6",
         borderColor: "#3b82f6",
         duration: 0.3,
-        ease: "power2.out",
       },
       0
     );
@@ -152,9 +160,13 @@ const Our = () => {
       pemtekIconRef.current,
       {
         y: -30,
-        x: 360,
+        x: () =>
+          moveIconToRight(
+            pemtekCardRef.current,
+            pemtekIconRef.current
+          ),
         scale: 0.85,
-        duration: 0.8,
+        duration: 0.6,
         ease: "power3.out",
       },
       0
@@ -164,7 +176,7 @@ const Our = () => {
       pemtekTitleRef.current,
       {
         y: -102,
-        duration: 0.8,
+        duration: 0.7,
         ease: "power3.out",
       },
       0
@@ -176,7 +188,6 @@ const Our = () => {
         opacity: 1,
         y: 0,
         duration: 0.4,
-        ease: "power3.out",
       },
       0.2
     );
@@ -192,70 +203,60 @@ const Our = () => {
   };
 
   const handlePemtekLeave = () => {
-    const tl = gsap.timeline();
-
-    tl.to(
-      pemtekCardRef.current,
-      {
+    gsap.timeline()
+      .to(pemtekCardRef.current, {
         backgroundColor: "#ffffff",
         borderColor: "#e5e7eb",
         duration: 0.4,
-        ease: "power2.inOut",
-      },
-      0
-    );
-
-    tl.to(
-      pemtekIconRef.current,
-      {
-        x: 0,
-        scale: 1,
-        duration: 0.8,
-        ease: "power3.inOut",
-      },
-      0
-    );
-
-    tl.to(
-      pemtekTitleRef.current,
-      {
-        y: 0,
-        color: "#000000",
-        duration: 0.4,
-      },
-      0
-    );
-
-    tl.to(
-      pemtekDescRef.current,
-      {
-        opacity: 0,
-        y: 24,
-        color: "#4b5563",
-        duration: 0.3,
-      },
-      0
-    );
-
-    tl.to(
-      pemtekFooterRef.current,
-      {
-        color: "#9ca3af",
-        duration: 0.3,
-      },
-      0
-    );
+      })
+      .to(
+        pemtekIconRef.current,
+        {
+          x: 0,
+          y: 0,
+          scale: 1,
+          duration: 0.6,
+        },
+        0
+      )
+      .to(
+        pemtekTitleRef.current,
+        {
+          y: 0,
+          color: "#000000",
+          duration: 0.4,
+        },
+        0
+      )
+      .to(
+        pemtekDescRef.current,
+        {
+          opacity: 0,
+          y: 24,
+          color: "#4b5563",
+          duration: 0.3,
+        },
+        0
+      )
+      .to(
+        pemtekFooterRef.current,
+        {
+          color: "#9ca3af",
+          duration: 0.3,
+        },
+        0
+      );
   };
 
   return (
     <section className="max-w-6xl mx-auto px-6 py-20">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {/* ================= MEDKOM ================= */}
+        {/* MEDKOM */}
         <div
           ref={medkomCardRef}
           onMouseEnter={handleMedkomEnter}
           onMouseLeave={handleMedkomLeave}
-          className="relative rounded-3xl border border-gray-200 p-10 overflow-hidden transition"
+          className="rounded-3xl border border-gray-200 p-10 overflow-hidden"
         >
           <div ref={medkomIconRef} className="mb-8 text-gray-300 w-fit">
             <CircleDashedIcon size={72} strokeWidth={2.8} />
@@ -269,28 +270,24 @@ const Our = () => {
 
             <div
               ref={medkomDescRef}
-              className="absolute top-0 left-0 opacity-0 translate-y-6 text-sm leading-relaxed"
+              className="absolute top-0 left-0 opacity-0 translate-y-6 text-sm"
             >
-              Bertanggung jawab atas branding, desain grafis, videografi,
-              dan manajemen media sosial.
+              Bertanggung jawab atas branding, desain grafis, videografi, dan manajemen media sosial.
             </div>
           </div>
 
-          <div
-            ref={medkomFooterRef}
-            className="flex items-center gap-2 text-sm"
-          >
+          <div ref={medkomFooterRef} className="flex gap-2 text-sm">
             <CircleDashedIcon size={16} />
             <span>Social Media & Branding</span>
           </div>
         </div>
 
-        {/* ================= PEMTEK ================= */}
+        {/* PEMTEK */}
         <div
           ref={pemtekCardRef}
           onMouseEnter={handlePemtekEnter}
           onMouseLeave={handlePemtekLeave}
-          className="relative rounded-3xl border border-gray-200 p-10 overflow-hidden transition"
+          className="rounded-3xl border border-gray-200 p-10 overflow-hidden"
         >
           <div ref={pemtekIconRef} className="mb-8 text-gray-300 w-fit">
             <TerminalIcon size={72} strokeWidth={1.2} />
@@ -306,16 +303,13 @@ const Our = () => {
 
             <div
               ref={pemtekDescRef}
-              className="absolute top-0 left-0 opacity-0 translate-y-6 text-sm leading-relaxed"
+              className="absolute top-0 left-0 opacity-0 translate-y-6 text-sm"
             >
               Fokus pada pengembangan website, aplikasi, UI/UX, dan pemeliharaan sistem informasi. Mereka adalah inovator yang membangun infrastruktur digital untuk kemudahan mahasiswa.
             </div>
           </div>
 
-          <div
-            ref={pemtekFooterRef}
-            className="flex items-center gap-2 text-sm"
-          >
+          <div ref={pemtekFooterRef} className="flex gap-2 text-sm">
             <Code size={16} />
             <span>Web & App Development</span>
           </div>
