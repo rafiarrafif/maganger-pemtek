@@ -1,6 +1,8 @@
 import About from "./sections/about/About";
+import Footer from "./sections/footer/Footer";
 import Hero from "./sections/hero/Hero";
 import Navbar from "./sections/navbar/Navbar";
+import Programs from "./sections/programs/Programs";
 
 const App = () => {
   return (
@@ -13,6 +15,12 @@ const App = () => {
       </div>
       <div className="bg-[#FBF9FF]" id="about">
         <About />
+      </div>
+      <div> 
+        <Programs />
+      </div>
+      <div> 
+        <Footer />
       </div>
     </div>
   );
