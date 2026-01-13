@@ -36,7 +36,7 @@ const Our = () => {
       medkomIconRef.current,
       {
         y: -30,
-        x: 240,
+        x: 360,
         rotation: 1080,
         scale: 0.85,
         duration: 0.5,
@@ -152,7 +152,7 @@ const Our = () => {
       pemtekIconRef.current,
       {
         y: -30,
-        x: 240,
+        x: 360,
         scale: 0.85,
         duration: 0.8,
         ease: "power3.out",
