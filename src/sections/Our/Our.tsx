@@ -281,7 +281,7 @@ const Our = () => {
               ref={medkomDescRef}
               className="absolute top-0 left-0 opacity-0 translate-y-6 text-sm"
             >
-              Bertanggung jawab atas branding, desain grafis, videografi, dan manajemen media sosial.
+              Bertanggung jawab atas branding, desain grafis, videografi, dan manajemen media sosial. Mereka adalah pencerita yang memastikan setiap pesan BEM terdengar lantang dan menarik.
             </div>
           </div>
 
