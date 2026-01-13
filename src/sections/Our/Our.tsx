@@ -250,6 +250,15 @@ const Our = () => {
 
   return (
     <section className="max-w-6xl mx-auto px-6 py-20">
+    {/* Title */}
+        <div className="text-center mb-16">
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900">
+            Our Core Divisions
+            </h1>
+            <p className="mt-4 text-gray-500 text-base md:text-lg">
+            Dua pilar utama penggerak inovasi BEM FATISDA
+            </p>
+        </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* MEDKOM */}
         <div
