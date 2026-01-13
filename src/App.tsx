@@ -2,6 +2,7 @@ import About from "./sections/about/About";
 import Footer from "./sections/footer/Footer";
 import Hero from "./sections/hero/Hero";
 import Navbar from "./sections/navbar/Navbar";
+import Our from "./sections/Our/Our";
 import Programs from "./sections/programs/Programs";
 
 const App = () => {
@@ -15,6 +16,9 @@ const App = () => {
       </div>
       <div className="bg-[#FBF9FF]" id="about">
         <About />
+      </div>
+      <div>
+        <Our /> 
       </div>
       <div> 
         <Programs />
