@@ -1,52 +1,325 @@
-import { Megaphone, Code2 } from "lucide-react";
+import { useRef } from "react";
+import { CircleDashedIcon, Code, TerminalIcon } from "lucide-react";
+import gsap from "gsap";
 
 const Our = () => {
+  // ===== MEDKOM =====
+  const medkomCardRef = useRef<HTMLDivElement>(null);
+  const medkomIconRef = useRef<HTMLDivElement>(null);
+  const medkomTitleRef = useRef<HTMLDivElement>(null);
+  const medkomDescRef = useRef<HTMLDivElement>(null);
+  const medkomFooterRef = useRef<HTMLDivElement>(null);
+
+  // ===== PEMTEK =====
+  const pemtekCardRef = useRef<HTMLDivElement>(null);
+  const pemtekIconRef = useRef<HTMLDivElement>(null);
+  const pemtekTitleRef = useRef<HTMLDivElement>(null);
+  const pemtekDescRef = useRef<HTMLDivElement>(null);
+  const pemtekFooterRef = useRef<HTMLDivElement>(null);
+
+  /* ================= MEDKOM ================= */
+  const handleMedkomEnter = () => {
+    const tl = gsap.timeline();
+
+    tl.to(
+      medkomCardRef.current,
+      {
+        backgroundColor: "#f97316",
+        borderColor: "#f97316",
+        duration: 0.3,
+        ease: "power2.out",
+      },
+      0
+    );
+
+    tl.to(
+      medkomIconRef.current,
+      {
+        y: -30,
+        x: 240,
+        rotation: 1080,
+        scale: 0.85,
+        duration: 0.5,
+        ease: "none",
+      },
+      0
+    );
+
+    tl.to(
+      medkomTitleRef.current,
+      {
+        y: -102,
+        duration: 0.8,
+        ease: "power3.out",
+      },
+      0
+    );
+
+    tl.to(
+      medkomDescRef.current,
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.4,
+        ease: "power3.out",
+      },
+      0.2
+    );
+
+    tl.to(
+      [medkomTitleRef.current, medkomDescRef.current, medkomFooterRef.current],
+      {
+        color: "#ffffff",
+        duration: 0.3,
+      },
+      0
+    );
+  };
+
+  const handleMedkomLeave = () => {
+    const tl = gsap.timeline();
+
+    tl.to(
+      medkomCardRef.current,
+      {
+        backgroundColor: "#ffffff",
+        borderColor: "#e5e7eb",
+        duration: 0.4,
+        ease: "power2.inOut",
+      },
+      0
+    );
+
+    tl.to(
+      medkomIconRef.current,
+      {
+        x: 0,
+        rotation: 0,
+        scale: 1,
+        duration: 0.8,
+        ease: "power3.inOut",
+      },
+      0
+    );
+
+    tl.to(
+      medkomTitleRef.current,
+      {
+        y: 0,
+        color: "#000000",
+        duration: 0.4,
+      },
+      0
+    );
+
+    tl.to(
+      medkomDescRef.current,
+      {
+        opacity: 0,
+        y: 24,
+        color: "#4b5563",
+        duration: 0.3,
+      },
+      0
+    );
+
+    tl.to(
+      medkomFooterRef.current,
+      {
+        color: "#9ca3af",
+        duration: 0.3,
+      },
+      0
+    );
+  };
+
+  /* ================= PEMTEK ================= */
+  const handlePemtekEnter = () => {
+    const tl = gsap.timeline();
+
+    tl.to(
+      pemtekCardRef.current,
+      {
+        backgroundColor: "#3b82f6",
+        borderColor: "#3b82f6",
+        duration: 0.3,
+        ease: "power2.out",
+      },
+      0
+    );
+
+    tl.to(
+      pemtekIconRef.current,
+      {
+        y: -30,
+        x: 240,
+        scale: 0.85,
+        duration: 0.8,
+        ease: "power3.out",
+      },
+      0
+    );
+
+    tl.to(
+      pemtekTitleRef.current,
+      {
+        y: -102,
+        duration: 0.8,
+        ease: "power3.out",
+      },
+      0
+    );
+
+    tl.to(
+      pemtekDescRef.current,
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.4,
+        ease: "power3.out",
+      },
+      0.2
+    );
+
+    tl.to(
+      [pemtekTitleRef.current, pemtekDescRef.current, pemtekFooterRef.current],
+      {
+        color: "#ffffff",
+        duration: 0.3,
+      },
+      0
+    );
+  };
+
+  const handlePemtekLeave = () => {
+    const tl = gsap.timeline();
+
+    tl.to(
+      pemtekCardRef.current,
+      {
+        backgroundColor: "#ffffff",
+        borderColor: "#e5e7eb",
+        duration: 0.4,
+        ease: "power2.inOut",
+      },
+      0
+    );
+
+    tl.to(
+      pemtekIconRef.current,
+      {
+        x: 0,
+        scale: 1,
+        duration: 0.8,
+        ease: "power3.inOut",
+      },
+      0
+    );
+
+    tl.to(
+      pemtekTitleRef.current,
+      {
+        y: 0,
+        color: "#000000",
+        duration: 0.4,
+      },
+      0
+    );
+
+    tl.to(
+      pemtekDescRef.current,
+      {
+        opacity: 0,
+        y: 24,
+        color: "#4b5563",
+        duration: 0.3,
+      },
+      0
+    );
+
+    tl.to(
+      pemtekFooterRef.current,
+      {
+        color: "#9ca3af",
+        duration: 0.3,
+      },
+      0
+    );
+  };
+
   return (
-    
     <section className="max-w-6xl mx-auto px-6 py-20">
-        <div className="text-center mb-16">
-  <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900">
-    Our Core Divisions
-  </h1>
-
-  <p className="mt-4 text-gray-500 text-base md:text-lg">
-    Dua pilar utama penggerak inovasi BEM FATISDA
-  </p>
-</div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-        <div className="rounded-3xl border border-gray-200 p-10 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-          <div className="mb-8 text-gray-300">
-            <Megaphone size={72} strokeWidth={1.2} />
+        {/* ================= MEDKOM ================= */}
+        <div
+          ref={medkomCardRef}
+          onMouseEnter={handleMedkomEnter}
+          onMouseLeave={handleMedkomLeave}
+          className="relative rounded-3xl border border-gray-200 p-10 overflow-hidden transition"
+        >
+          <div ref={medkomIconRef} className="mb-8 text-gray-300 w-fit">
+            <CircleDashedIcon size={72} strokeWidth={2.8} />
           </div>
 
-          <h2 className="text-4xl font-bold mb-2">Medkom</h2>
-          <p className="italic text-gray-500 mb-6">
-            "The Voice & The Vision"
-          </p>
+          <div className="relative h-[110px] mb-6">
+            <div ref={medkomTitleRef}>
+              <h2 className="text-4xl font-bold mb-2">Medkom</h2>
+              <p className="italic">"The Voice & The Vision"</p>
+            </div>
 
-          <div className="flex items-center gap-2 text-gray-400 text-sm">
-            <Megaphone size={16} />
+            <div
+              ref={medkomDescRef}
+              className="absolute top-0 left-0 opacity-0 translate-y-6 text-sm leading-relaxed"
+            >
+              Bertanggung jawab atas branding, desain grafis, videografi,
+              dan manajemen media sosial.
+            </div>
+          </div>
+
+          <div
+            ref={medkomFooterRef}
+            className="flex items-center gap-2 text-sm"
+          >
+            <CircleDashedIcon size={16} />
             <span>Social Media & Branding</span>
           </div>
         </div>
 
-        <div className="rounded-3xl border border-gray-200 p-10 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-          <div className="mb-8 text-gray-300">
-            <Code2 size={72} strokeWidth={1.2} />
+        {/* ================= PEMTEK ================= */}
+        <div
+          ref={pemtekCardRef}
+          onMouseEnter={handlePemtekEnter}
+          onMouseLeave={handlePemtekLeave}
+          className="relative rounded-3xl border border-gray-200 p-10 overflow-hidden transition"
+        >
+          <div ref={pemtekIconRef} className="mb-8 text-gray-300 w-fit">
+            <TerminalIcon size={72} strokeWidth={1.2} />
           </div>
 
-          <h2 className="text-4xl font-bold mb-2">Pemtek</h2>
-          <p className="italic text-gray-500 mb-6">
-            "The Architects of Digital Ecosystem"
-          </p>
+          <div className="relative h-[110px] mb-6">
+            <div ref={pemtekTitleRef}>
+              <h2 className="text-4xl font-bold mb-2">Pemtek</h2>
+              <p className="italic">
+                "The Architects of Digital Ecosystem"
+              </p>
+            </div>
 
-          <div className="flex items-center gap-2 text-gray-400 text-sm">
-            <Code2 size={16} />
+            <div
+              ref={pemtekDescRef}
+              className="absolute top-0 left-0 opacity-0 translate-y-6 text-sm leading-relaxed"
+            >
+              Fokus pada pengembangan website, aplikasi, UI/UX, dan pemeliharaan sistem informasi. Mereka adalah inovator yang membangun infrastruktur digital untuk kemudahan mahasiswa.
+            </div>
+          </div>
+
+          <div
+            ref={pemtekFooterRef}
+            className="flex items-center gap-2 text-sm"
+          >
+            <Code size={16} />
             <span>Web & App Development</span>
           </div>
         </div>
-
       </div>
     </section>
   );
