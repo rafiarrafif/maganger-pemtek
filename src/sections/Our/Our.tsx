@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { CircleDashedIcon, Code, TerminalIcon } from "lucide-react";
+import { CircleDashedIcon, Code, MegaphoneIcon, TerminalIcon } from "lucide-react";
 import gsap from "gsap";
 
 const Our = () => {
@@ -286,7 +286,7 @@ const Our = () => {
           </div>
 
           <div ref={medkomFooterRef} className="flex gap-2 text-sm">
-            <CircleDashedIcon size={16} />
+            <MegaphoneIcon size={16} />
             <span>Social Media & Branding</span>
           </div>
         </div>
